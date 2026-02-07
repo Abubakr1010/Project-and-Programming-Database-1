@@ -1,17 +1,12 @@
-# Use a more modern Python base for better compatibility with Gemini SDK
 FROM python:3.9-slim
 
 # Set environment variables to prevent Python from writing .pyc files 
-# and to ensure output is sent straight to terminal (unbuffered)
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
 # Install system dependencies
-# - graphviz: Required for rendering the ER diagrams
-# - libpq-dev & gcc: Required for psycopg2 (PostgreSQL adapter)
-# - curl: For healthchecks or debugging
 RUN apt-get update && apt-get install -y \
     graphviz \
     libpq-dev \

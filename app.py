@@ -10,7 +10,6 @@ import google.generativeai as genai
 # ============================
 # Gemini Config
 # ============================
-# Make sure to set GOOGLE_API_KEY in your environment variables
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
@@ -94,7 +93,6 @@ def call_gemini_for_dot(prompt_text):
     )
 
     start = time.time()
-    # Using generation_config to keep output strictly code-focused
     response = model.generate_content(
         prompt_text,
         generation_config=genai.types.GenerationConfig(
@@ -108,7 +106,6 @@ def call_gemini_for_dot(prompt_text):
 
     content = response.text.strip()
     
-    # Clean up markdown if the model ignores the "no markdown" instruction
     if "```" in content:
         content = content.split("```")[1]
         if content.startswith("dot"):

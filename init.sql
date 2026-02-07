@@ -11,7 +11,7 @@ CREATE TABLE PROJECTS (
     user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Added
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE LOGS (
     user_prompt TEXT,
     llm_response JSONB,
     execution_time FLOAT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Added (Fixes the crash)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE SAVED_SCHEMAS (
@@ -30,7 +30,7 @@ CREATE TABLE SAVED_SCHEMAS (
     sql_script TEXT,
     er_diagram_code TEXT,
     version INT DEFAULT 1,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Added
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
 -- Seed Data
