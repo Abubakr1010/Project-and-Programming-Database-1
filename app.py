@@ -168,7 +168,7 @@ with st.sidebar:
 # Main App
 # ============================
 if st.session_state.logged_in:
-    st.header("ER Diagram Architect (Text → DOT via Gemini)")
+    st.header("Group 4: ER Diagram Generator")
     user_input = st.text_area("Describe your tables and relationships:", height=150)
 
     if st.button("🚀 Generate Diagram") and user_input.strip():
